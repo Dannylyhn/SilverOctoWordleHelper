@@ -13,11 +13,19 @@ export default function Home() {
 
   const [fileContent, setFileContent] = useState("");
   
+  const [invalidLetters, setInvalidLetter] = useState("");
+
+  const [results, setResults] = useState([null]);
+
+    const handleInvalidLetterchange = (e) => {
+      setInvalidLetter(e.target.value);
+      console.log(e.target.value);
+    }
 
   function handleSolveButton(){
-    var validLetters = sortBasedOnInvalidLetters(fileContent, incorrectPlacedLetters);
-    console.log(correctPlacedLetters)
-    console.log(incorrectPlacedLetters)
+    var validLetters = sortBasedOnInvalidLetters(fileContent, invalidLetters);
+    console.log(validLetters);
+    setResults(validLetters);
   }
 
   useEffect(() => {
@@ -32,17 +40,17 @@ export default function Home() {
   }, []);
 
 
-  function sortBasedOnInvalidLetters(fileContent, invalidLetters){
+  function sortBasedOnInvalidLetters(fileContent, letters){
     console.log(typeof(fileContent));
     let arrayOfWords = fileContent.split("\n");
     console.log(arrayOfWords);
-    let arrayOfInvalidLetters = invalidLetters.split("");
+    let arrayOfInvalidLetters = letters.split("");
 
-    arrayOfInvalidLetters.forEach(element => {
-      
+    arrayOfInvalidLetters.forEach(letter => {
+      let temporaryList = arrayOfWords.filter(word => word.split('').every(char => char != letter));
+      arrayOfWords = temporaryList;
     });
-    
-
+    return arrayOfWords;
   }
 
 
@@ -55,10 +63,10 @@ export default function Home() {
       <h4>Type valid letters but at incorrect spaces</h4>
       <LetterInputs dataToParent={setincorrectPlacedLetters} />
       <h4>Input all the used incorrect letters</h4>
-      <input className="text-center border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"></input>
+      <input onChange={handleInvalidLetterchange} value={invalidLetters} className="text-center border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"></input>
       <br/>
       <button onClick={handleSolveButton} className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Submit</button>
-      <ListResult listResult={mockData} />
+      <ListResult listResult={results} />
     </main>
   )
 }
