@@ -37,11 +37,7 @@ const LetterInputs = (props) => {
     }
 
     useEffect(() => {
-      
-     
       props.dataToParent(letter + letter2 +letter3 +letter4+ letter5)
-
-
     },[letter, letter2, letter3, letter4, letter5]);
 
     return (
