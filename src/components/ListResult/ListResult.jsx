@@ -1,7 +1,5 @@
-export default function ListResult(result){
-
-    const mockData = ["Price", "Canes", "Rises"]
-
+export default function ListResult(props){
+    
     return (
         <div>
             <table>
@@ -11,7 +9,7 @@ export default function ListResult(result){
                     </tr>
                 </thead>
                 <tbody>
-                    {mockData.map((stringValue, index) => (
+                    {props.listResult.map((stringValue, index) => (
                     <tr key={index}>
                         <td>{stringValue}</td>
                     </tr>
