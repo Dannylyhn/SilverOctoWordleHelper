@@ -1,8 +1,7 @@
 "use client"
 import LetterInputs from "../components/LetterInputs/LetterInputs"
 import ListResult from "../components/ListResult/ListResult"
-import {useState} from 'react';
-
+import {useState, useEffect} from 'react';
 
 export default function Home() {
 
@@ -11,12 +10,41 @@ export default function Home() {
   const [correctPlacedLetters, setCorrectPlacedLetters] = useState("");
 
   const [incorrectPlacedLetters, setincorrectPlacedLetters] = useState("");
+
+  const [fileContent, setFileContent] = useState("");
   
 
   function handleSolveButton(){
+    var validLetters = sortBasedOnInvalidLetters(fileContent, incorrectPlacedLetters);
     console.log(correctPlacedLetters)
     console.log(incorrectPlacedLetters)
   }
+
+  useEffect(() => {
+    fetch('/listOf5LetterWords.txt') 
+      .then(response => response.text())
+      .then(data => {
+        setFileContent(data);
+      })
+      .catch(error => {
+        console.error('Error fetching file:', error);
+      });
+  }, []);
+
+
+  function sortBasedOnInvalidLetters(fileContent, invalidLetters){
+    console.log(typeof(fileContent));
+    let arrayOfWords = fileContent.split("\n");
+    console.log(arrayOfWords);
+    let arrayOfInvalidLetters = invalidLetters.split("");
+
+    arrayOfInvalidLetters.forEach(element => {
+      
+    });
+    
+
+  }
+
 
   return (
     <main>
