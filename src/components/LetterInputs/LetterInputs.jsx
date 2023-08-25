@@ -2,7 +2,8 @@ import {useState} from 'react';
 
 export default function LetterInputs() {
 
-    const inputStyle = "border-4 border-light-blue-500 border-opacity-100"
+    const inputStyle = "text-center w-10 border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"
+    const maxLength = 1;
     
     const [letter, setLetter] = useState("");
     const [letter2, setLetter2] = useState("");
@@ -32,13 +33,14 @@ export default function LetterInputs() {
     }
     
 
+
     return (
       <div className="">
-        <input onChange = {handleLetterchange} value = {letter} className={inputStyle}></input>
-        <input onChange = {handleLetter2change} value = {letter2} className={inputStyle}></input>
-        <input onChange = {handleLetter3change} value = {letter3} className={inputStyle}></input>
-        <input onChange = {handleLetter4change} value = {letter4} className={inputStyle}></input>
-        <input onChange = {handleLetter5change} value = {letter5} className={inputStyle}></input>
+        <input onChange = {handleLetterchange} type='text' maxLength={maxLength} value = {letter} className={inputStyle}></input>
+        <input onChange = {handleLetter2change} maxLength={maxLength} value = {letter2} className={inputStyle}></input>
+        <input onChange = {handleLetter3change} maxLength={maxLength} value = {letter3} className={inputStyle}></input>
+        <input onChange = {handleLetter4change} maxLength={maxLength} value = {letter4} className={inputStyle}></input>
+        <input onChange = {handleLetter5change} maxLength={maxLength} value = {letter5} className={inputStyle}></input>
       </div>
     )
   }
