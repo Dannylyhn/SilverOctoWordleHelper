@@ -9,7 +9,9 @@ export default function Home() {
   const mockData = ["Price", "Canes", "Rises", "Tries"];
 
   const [correctPlacedLetters, setCorrectPlacedLetters] = useState("");
+
   const [incorrectPlacedLetters, setincorrectPlacedLetters] = useState("");
+  
 
   function handleSolveButton(){
     console.log(correctPlacedLetters)

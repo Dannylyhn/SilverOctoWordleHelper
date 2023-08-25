@@ -41,7 +41,7 @@ const LetterInputs = (props) => {
     },[letter, letter2, letter3, letter4, letter5]);
 
     return (
-      <div className>
+      <div>
         <input onChange = {handleLetterchange}  maxLength={maxLength} value = {letter} className={inputStyle}></input>
         <input onChange = {handleLetter2change} maxLength={maxLength} value = {letter2} className={inputStyle}></input>
         <input onChange = {handleLetter3change} maxLength={maxLength} value = {letter3} className={inputStyle}></input>
