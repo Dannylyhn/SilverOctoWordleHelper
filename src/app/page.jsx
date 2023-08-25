@@ -50,7 +50,7 @@ export default function Home() {
     <main>
       <h1>SilverOctoWordleSolver</h1>
       <h4>Input correct letters at the correct spaces</h4>
-      <h4>Please use "_" at the missing spaces</h4>
+      <h4>Please use _ at the missing spaces</h4>
       <LetterInputs dataToParent={setCorrectPlacedLetters} />
       <h4>Type valid letters but at incorrect spaces</h4>
       <LetterInputs dataToParent={setincorrectPlacedLetters} />
