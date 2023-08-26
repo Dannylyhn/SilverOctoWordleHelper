@@ -97,6 +97,7 @@ export default function Home() {
         <br/>
         <button onClick={handleSolveButton} className="h-10 px-4 m-4 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Solve</button>
         <ListResult listResult={results} />
+        <h3 className="mt-10 mb-4 font-extrabold lg:text-2xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-red-800 from-blue-300">Visit me at https://github.com/Dannylyhn</span></h3>
       </div>
     </main>
   )
