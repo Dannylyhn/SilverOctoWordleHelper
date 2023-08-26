@@ -15,16 +15,19 @@ export default function Home() {
 
   const [results, setResults] = useState([null]);
 
-    const handleInvalidLetterchange = (e) => {
-      setInvalidLetter(e.target.value.toLocaleLowerCase());
-      //console.log(e.target.value);
-    }
+  const handleInvalidLetterchange = (e) => {
+    setInvalidLetter(e.target.value.toLocaleLowerCase());
+    //console.log(e.target.value);
+  }
 
   function handleSolveButton(){
     var validWords = sortOnInvalidLetters(fileContent, invalidLetters);
     //console.log(validWords);
     validWords = sortOnValidLetters(validWords, incorrectPlacedLetters);
     //console.log(validWords);
+
+    validWords = solveWordle(validWords, correctPlacedLetters);
+
     setResults(validWords);
   }
 
@@ -38,7 +41,6 @@ export default function Home() {
         console.error('Error fetching file:', error);
       });
   }, []);
-
 
   //Sort away all the words with invalid letters
   function sortOnInvalidLetters(fileContent, letters){
@@ -61,6 +63,26 @@ export default function Home() {
 
     });
     return words;
+  }
+
+
+  function solveWordle(possibleWords, letters){
+    let arrayOfInvalidLetters = letters.split("");
+    let result = [];
+
+    console.log("possibleWords", possibleWords);
+    
+    for (let i = 0; i < arrayOfInvalidLetters.length; i++) {
+      
+      let currentLetter = arrayOfInvalidLetters[i];
+
+      if(currentLetter == "_"){
+        continue;
+      }
+      result = possibleWords.filter(x => x.split("")[i] == currentLetter);
+      possibleWords = result;
+    }
+    return result;
   }
 
 
