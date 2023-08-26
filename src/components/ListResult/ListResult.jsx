@@ -5,7 +5,7 @@ export default function ListResult(props){
             <table>
                 <thead>
                     <tr>
-                    <th>Possible solutions:</th>
+                    <th>Possible solutions: {props.listResult.length}</th>
                     </tr>
                 </thead>
                 <tbody>

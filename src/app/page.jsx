@@ -13,7 +13,7 @@ export default function Home() {
   
   const [invalidLetters, setInvalidLetter] = useState("");
 
-  const [results, setResults] = useState([null]);
+  const [results, setResults] = useState([]);
 
   const handleInvalidLetterchange = (e) => {
     setInvalidLetter(e.target.value.toLocaleLowerCase());
@@ -25,9 +25,7 @@ export default function Home() {
     //console.log(validWords);
     validWords = sortOnValidLetters(validWords, incorrectPlacedLetters);
     //console.log(validWords);
-
     validWords = solveWordle(validWords, correctPlacedLetters);
-
     setResults(validWords);
   }
 
@@ -60,7 +58,6 @@ export default function Home() {
     arrayOfInvalidLetters.forEach(letter => {
       let temporaryList = words.filter(word => word.includes(letter));
       words = temporaryList;
-
     });
     return words;
   }
