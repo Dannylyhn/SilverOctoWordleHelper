@@ -68,7 +68,7 @@ export default function Home() {
 
   function solveWordle(possibleWords, letters){
     let arrayOfInvalidLetters = letters.split("");
-    let result = [];
+    let result = possibleWords;
 
     console.log("possibleWords", possibleWords);
     
