@@ -16,19 +16,15 @@ export default function Home() {
   const [results, setResults] = useState([null]);
 
     const handleInvalidLetterchange = (e) => {
-      setInvalidLetter(e.target.value);
+      setInvalidLetter(e.target.value.toLocaleLowerCase());
       //console.log(e.target.value);
     }
 
   function handleSolveButton(){
     var validWords = sortOnInvalidLetters(fileContent, invalidLetters);
     //console.log(validWords);
-
     validWords = sortOnValidLetters(validWords, incorrectPlacedLetters);
     //console.log(validWords);
-
-
-    
     setResults(validWords);
   }
 

@@ -16,29 +16,29 @@ const LetterInputs = (props) => {
     const [letter5, setLetter5] = useState("");
 
     const handleLetterchange = (e) => {
-      setLetter(e.target.value);
+      setLetter(e.target.value.toLocaleLowerCase());
       console.log(e.target.value);
     }
     const handleLetter2change = (e) => {
-      setLetter2(e.target.value);
+      setLetter2(e.target.value.toLocaleLowerCase());
       console.log(e.target.value);
     }
     const handleLetter3change = (e) => {
-      setLetter3(e.target.value);
+      setLetter3(e.target.value.toLocaleLowerCase());
       console.log(e.target.value);
     }
     const handleLetter4change = (e) => {
-      setLetter4(e.target.value);
+      setLetter4(e.target.value.toLocaleLowerCase());
       console.log(e.target.value);
     }
     const handleLetter5change = (e) => {
-      setLetter5(e.target.value);
+      setLetter5(e.target.value.toLocaleLowerCase());
       console.log(e.target.value);
     }
 
     useEffect(() => {
       let result = letter + letter2 +letter3 +letter4+ letter5;
-      props.dataToParent(result.toLocaleLowerCase());
+      props.dataToParent(result);
     },[letter, letter2, letter3, letter4, letter5]);
 
     return (
