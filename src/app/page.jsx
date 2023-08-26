@@ -5,8 +5,6 @@ import {useState, useEffect} from 'react';
 
 export default function Home() {
 
-  const mockData = ["Price", "Canes", "Rises", "Tries"];
-
   const [correctPlacedLetters, setCorrectPlacedLetters] = useState("");
 
   const [incorrectPlacedLetters, setincorrectPlacedLetters] = useState("");
@@ -19,13 +17,19 @@ export default function Home() {
 
     const handleInvalidLetterchange = (e) => {
       setInvalidLetter(e.target.value);
-      console.log(e.target.value);
+      //console.log(e.target.value);
     }
 
   function handleSolveButton(){
-    var validLetters = sortBasedOnInvalidLetters(fileContent, invalidLetters);
-    console.log(validLetters);
-    setResults(validLetters);
+    var validWords = sortOnInvalidLetters(fileContent, invalidLetters);
+    //console.log(validWords);
+
+    validWords = sortOnValidLetters(validWords, incorrectPlacedLetters);
+    //console.log(validWords);
+
+
+    
+    setResults(validWords);
   }
 
   useEffect(() => {
@@ -40,10 +44,9 @@ export default function Home() {
   }, []);
 
 
-  function sortBasedOnInvalidLetters(fileContent, letters){
-    console.log(typeof(fileContent));
+  //Sort away all the words with invalid letters
+  function sortOnInvalidLetters(fileContent, letters){
     let arrayOfWords = fileContent.split("\n");
-    console.log(arrayOfWords);
     let arrayOfInvalidLetters = letters.split("");
 
     arrayOfInvalidLetters.forEach(letter => {
@@ -51,6 +54,17 @@ export default function Home() {
       arrayOfWords = temporaryList;
     });
     return arrayOfWords;
+  }
+
+  //Sort to only include all the words with valid letters
+  function sortOnValidLetters(words, letters){
+    let arrayOfInvalidLetters = letters.split("");
+    arrayOfInvalidLetters.forEach(letter => {
+      let temporaryList = words.filter(word => word.includes(letter));
+      words = temporaryList;
+
+    });
+    return words;
   }
 
 

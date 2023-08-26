@@ -37,7 +37,8 @@ const LetterInputs = (props) => {
     }
 
     useEffect(() => {
-      props.dataToParent(letter + letter2 +letter3 +letter4+ letter5)
+      let result = letter + letter2 +letter3 +letter4+ letter5;
+      props.dataToParent(result.toLocaleLowerCase());
     },[letter, letter2, letter3, letter4, letter5]);
 
     return (
