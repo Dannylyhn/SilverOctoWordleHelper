@@ -2,7 +2,7 @@ export default function ListResult(props){
     
     return (
         <div>
-            <table>
+            <table className="bg-gray-200 w-full text-center">
                 <thead>
                     <tr>
                     <th>Possible solutions: {props.listResult.length}</th>

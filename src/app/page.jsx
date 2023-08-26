@@ -84,18 +84,20 @@ export default function Home() {
 
 
   return (
-    <main>
-      <h1>SilverOctoWordleSolver</h1>
-      <h4>Input correct letters at the correct spaces</h4>
-      <h4>Please use _ at the missing spaces</h4>
-      <LetterInputs dataToParent={setCorrectPlacedLetters} />
-      <h4>Type valid letters but at incorrect spaces</h4>
-      <LetterInputs dataToParent={setincorrectPlacedLetters} />
-      <h4>Input all the used incorrect letters</h4>
-      <input onChange={handleInvalidLetterchange} value={invalidLetters} className="text-center border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"></input>
-      <br/>
-      <button onClick={handleSolveButton} className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Submit</button>
-      <ListResult listResult={results} />
+    <main className="bg-gray-200">
+     <div className="bg-gray-200 w-full text-center">
+        <h1 className="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">SilverOctoWordleSolver</span></h1>
+        <h4>Input correct letters at the correct spaces</h4>
+        <h4>Please use _ at the missing spaces</h4>
+        <LetterInputs dataToParent={setCorrectPlacedLetters} />
+        <h4>Type valid letters but at incorrect spaces</h4>
+        <LetterInputs dataToParent={setincorrectPlacedLetters} />
+        <h4>Input all the used incorrect letters</h4>
+        <input onChange={handleInvalidLetterchange} value={invalidLetters} className="text-center border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"></input>
+        <br/>
+        <button onClick={handleSolveButton} className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Submit</button>
+        <ListResult listResult={results} />
+      </div>
     </main>
   )
 }
