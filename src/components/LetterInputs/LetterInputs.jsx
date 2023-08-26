@@ -6,7 +6,7 @@ import React from 'react';
 const LetterInputs = (props) => {
 
    
-    const inputStyle = "text-center w-10 border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"
+    const inputStyle = "text-center w-10 rounded-lg px-1 py-1 mr-1 border focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
     const maxLength = 1;
     
     const [letter, setLetter] = useState("");

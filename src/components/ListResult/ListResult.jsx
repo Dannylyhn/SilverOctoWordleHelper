@@ -14,8 +14,8 @@ export default function ListResult(props){
                         <td>{stringValue}</td>
                     </tr>
                     ))}
-            </tbody>
-    </table>
+                </tbody>
+            </table>
         </div>
     );
 }

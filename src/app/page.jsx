@@ -85,17 +85,17 @@ export default function Home() {
 
   return (
     <main>
-     <div className="h-screen w-screen text-center">
+     <div className="mt-20 h-screen w-screen text-center">
         <h1 className="mt-4 mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">SilverOctoWordleSolver</span></h1>
-        <h4>Input correct letters at the correct spaces</h4>
-        <h4>Please use _ at the missing spaces</h4>
+        <h4 className="text-lg font-bold text-black-500 lg:text-xl dark:text-gray-400">Input correct letters at the correct spaces</h4>
+        <h4>Please use '_' at the missing spaces</h4>
         <LetterInputs dataToParent={setCorrectPlacedLetters} />
-        <h4>Type valid letters but at incorrect spaces</h4>
+        <h4>Input valid letters at incorrect spaces</h4>
         <LetterInputs dataToParent={setincorrectPlacedLetters} />
-        <h4>Input all the used incorrect letters</h4>
-        <input onChange={handleInvalidLetterchange} value={invalidLetters} className="text-center border-2 border-light-blue-500 border-opacity-100 mb-4 mr-1"></input>
+        <h4>Input all the used invalid letters</h4>
+        <input onChange={handleInvalidLetterchange} value={invalidLetters} className="rounded-lg text-center px-1 py-1 mr-1 border focus:outline-none focus:ring-2 focus:ring-blue-500"></input>
         <br/>
-        <button onClick={handleSolveButton} className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Submit</button>
+        <button onClick={handleSolveButton} className="h-10 px-4 m-4 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">Solve</button>
         <ListResult listResult={results} />
       </div>
     </main>
