@@ -15,8 +15,12 @@ const LetterInputs = (props) => {
     const newLetters = [...letters];
     newLetters[index] = e.target.value.toLowerCase();
     setLetters(newLetters);
-
-    if (e.target.value.length >= maxLength && index < letters.length - 1) {
+  
+    if (e.target.value.length === 0 && index > 0) {
+      // Move focus to the previous input when deleting
+      inputRefs.current[index - 1].focus();
+    } else if (e.target.value.length === 1 && index < letters.length - 1) {
+      // Move focus to the next input when typing a new character
       inputRefs.current[index + 1].focus();
     }
   };
